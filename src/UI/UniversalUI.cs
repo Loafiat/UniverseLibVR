@@ -110,6 +110,8 @@ public static class UniversalUI
         PoolHolder = new GameObject("PoolHolder");
         PoolHolder.transform.parent = CanvasRoot.transform;
         PoolHolder.SetActive(false);
+        
+        CanvasRoot.transform.localScale = Vector3.one * 0.001f;
 
         Initializing = false;
     }
@@ -124,6 +126,10 @@ public static class UniversalUI
         if (!AnyUIShowing)
             return;
 
+        CanvasRoot.transform.position = Camera.current ? Camera.current.transform.position + Camera.current.transform.forward : Camera.main.transform.position + Camera.main.transform.forward;
+        CanvasRoot.transform.rotation =
+            Camera.current ? Camera.current.transform.rotation : Camera.main.transform.rotation;
+        
         // Prevent click-through
         if (EventSys.IsPointerOverGameObject())
         {

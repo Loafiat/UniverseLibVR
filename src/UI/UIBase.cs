@@ -49,7 +49,7 @@ namespace UniverseLib.UI
             RootRect = RootObject.GetComponent<RectTransform>();
 
             this.Canvas = RootObject.AddComponent<Canvas>();
-            this.Canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            this.Canvas.renderMode = RenderMode.WorldSpace;
             this.Canvas.referencePixelsPerUnit = 100;
             this.Canvas.sortingOrder = TOP_SORTORDER;
             this.Canvas.overrideSorting = true;
